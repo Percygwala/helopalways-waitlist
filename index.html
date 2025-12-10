@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.firebaseio.com https://*.googleapis.com;">
     <title>HelpAlways - Join the Waitlist</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,11 +68,11 @@
 
                     <button type="submit" class="submit-btn" id="submitBtn">
                         <span class="btn-text">Join the Waitlist</span>
-                        <span class="btn-loader" style="display: none;">Submitting...</span>
+                        <span class="btn-loader">Submitting...</span>
                     </button>
                 </form>
 
-                <div id="successMessage" class="success-message" style="display: none;">
+                <div id="successMessage" class="success-message">
                     <svg class="success-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>

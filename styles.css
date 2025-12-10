@@ -217,6 +217,7 @@ body {
 }
 
 .success-message {
+    display: none;
     text-align: center;
     padding: 32px 20px;
     animation: fadeIn 0.5s ease-in;
@@ -299,7 +300,7 @@ body {
 
 /* Loading state */
 .btn-loader {
-    display: inline-block;
+    display: none;
 }
 
 .submit-btn.loading .btn-text {
