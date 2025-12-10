@@ -1,0 +1,28 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Waitlist collection - allow anyone to write (for signups), but only read for authenticated users or admins
+    match /waitlist/{documentId} {
+      // Allow anyone to create new waitlist entries
+      allow create: if request.resource.data.keys().hasAll(['fullName', 'email', 'notify', 'timestamp', 'createdAt'])
+                   && request.resource.data.fullName is string
+                   && request.resource.data.email is string
+                   && request.resource.data.notify is bool
+                   && request.resource.data.email.matches('.*@.*\\..*'); // Basic email validation
+      
+      // Only allow reads if authenticated (or remove this line to deny all reads)
+      // allow read: if request.auth != null;
+      
+      // Deny updates and deletes from client
+      allow update, delete: if false;
+    }
+    
+    // Deny access to all other collections
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
+
